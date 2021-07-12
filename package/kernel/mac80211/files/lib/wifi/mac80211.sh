@@ -169,7 +169,7 @@ detect_mac80211() {
 		fi
 		
 		ssid="OpenWrt"
-		[ "$mode_band" = "a" ] && ssid="${ssid}_5G"
+		[ "$mode_band" != "" -a "$mode_band" != "2g" ] && ssid="${ssid}_5G"
 
 		uci -q batch <<-EOF
 			set wireless.radio${devidx}=wifi-device
